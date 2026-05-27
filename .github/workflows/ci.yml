@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  dbt-compile:
+    name: dbt project compiles
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dbt
+        run: |
+          python -m pip install --upgrade pip
+          pip install dbt-core==1.11.9 dbt-bigquery==1.11.1
+
+      # dbt requires a profiles.yml to exist even for offline validation.
+      # The stub points at a non-existent BigQuery project; no connection is made
+      # by `dbt parse`.
+      - name: Write stub dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml <<'EOF'
+          cms_penalty_analysis:
+            target: ci
+            outputs:
+              ci:
+                type: bigquery
+                method: oauth
+                project: ci-stub-project
+                dataset: ci_stub_dataset
+                threads: 1
+                location: US
+          EOF
+
+      - name: dbt deps
+        working-directory: cms_penalty_analysis
+        run: dbt deps
+
+      # `dbt parse` is the offline equivalent of `dbt compile`: it validates
+      # project structure, Jinja rendering, refs, and source declarations
+      # without contacting the warehouse. `dbt compile` would require live
+      # BigQuery credentials to initialize the adapter.
+      - name: dbt parse (offline compile check)
+        working-directory: cms_penalty_analysis
+        run: dbt parse

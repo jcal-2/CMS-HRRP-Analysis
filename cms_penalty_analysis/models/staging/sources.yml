@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: cms_raw_historical
+    database: data-viz-sandbox-495114
+    schema: cms_raw_historical
+    tables:
+      - name: raw_hrrp_fy2016
+      - name: raw_hrrp_fy2017
+      - name: raw_hrrp_fy2018
+      - name: raw_hrrp_fy2019
+      - name: raw_hrrp_fy2020
+      - name: raw_hrrp_fy2021
+      - name: raw_hrrp_fy2022
+      - name: raw_hrrp_fy2023
+      - name: raw_hrrp_fy2024
+      - name: raw_hrrp_fy2025
+
+  - name: cms_raw_current
+    database: data-viz-sandbox-495114
+    schema: cms_raw_current
+    tables:
+      - name: raw_hcahps
+      - name: raw_readmissions
+      - name: raw_hospital_info
+      - name: raw_spending
+      - name: raw_complications
+      - name: raw_hac
+      - name: raw_timely_care
+      - name: raw_payment_value
+      - name: raw_unplanned_visits
+
+  - name: cms_raw_costreports
+    database: data-viz-sandbox-495114
+    schema: cms_raw_costreports
+    tables:
+      - name: raw_hcris_rpt_fy2022
+      - name: raw_hcris_rpt_fy2023
+      - name: raw_hcris_rpt_fy2024
+      - name: raw_hcris_rpt_fy2025
+      - name: raw_hcris_nmrc_fy2022
+      - name: raw_hcris_nmrc_fy2023
+      - name: raw_hcris_nmrc_fy2024
+      - name: raw_hcris_nmrc_fy2025
+      - name: raw_hcris_alpha_fy2022
+      - name: raw_hcris_alpha_fy2023
+      - name: raw_hcris_alpha_fy2024
+      - name: raw_hcris_alpha_fy2025

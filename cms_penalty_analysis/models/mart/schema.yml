@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: fct_hospital_penalty_trajectory
+    description: "One row per hospital per fiscal year (FY2016-2025). Tracks penalty status, severity, YoY changes, cumulative penalties, and hospital attributes. Powers trend analysis, persistence tracking, and Sankey flow."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+      - name: fiscal_year
+        description: "Federal fiscal year"
+      - name: penalty_percentage
+        description: "Penalty as percentage (0-3%)"
+      - name: is_penalized
+        description: "True if penalized this year"
+      - name: penalty_cohort
+        description: "Not present in this table; see fct_hospital_current_performance"
+      - name: cumulative_penalties
+        description: "Running count of penalty years up to this fiscal year"
+      - name: penalty_direction
+        description: "YoY change: improving, worsening, stable, new_penalty, or escaped"
+
+  - name: fct_hospital_current_performance
+    description: "One row per hospital. Joins current performance across all CMS dimensions (readmissions, complications, HAC, spending, payment/value) with penalty trajectory summary and cohort classification (chronic, escaper, intermittent, never_penalized)."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+      - name: penalty_cohort
+        description: "chronic (all years), escaper (was penalized, now not), intermittent, or never_penalized"
+      - name: avg_current_err
+        description: "Average current excess readmission ratio across all conditions"
+      - name: mspb_ratio
+        description: "Medicare Spending Per Beneficiary ratio"
+
+  - name: dim_hospital
+    description: "Hospital dimension table. One row per hospital with static attributes: location, ownership, star rating, census region."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN), primary key"
+
+  - name: dim_fiscal_year
+    description: "Fiscal year dimension with policy context flags. One row per year (2016-2025) with peer grouping, COVID, and program maturity indicators."
+    columns:
+      - name: fiscal_year
+        description: "Federal fiscal year (2016-2025), primary key"
+      - name: policy_era
+        description: "early, peer_grouping_introduced, covid_era, or post_covid"
+
+  - name: fct_hospital_financials
+    description: "One row per hospital with most recent HCRIS cost report. Reports covering >= 300 days are preferred over short-period filings; if a hospital only has short-period reports, the most recent of those is used. Join to dim_hospital / fct_hospital_current_performance for facility attributes."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN), primary key"
+        tests:
+          - not_null
+          - unique
+      - name: rpt_rec_num
+        description: "HCRIS report record number selected for this facility"
+        tests:
+          - not_null
+      - name: hcris_receipt_fy
+        description: "Fiscal year window in which CMS received the selected report"
+      - name: fy_begin_date
+        description: "Cost report period start date"
+      - name: fy_end_date
+        description: "Cost report period end date"
+      - name: report_period_days
+        description: "Number of days covered by the selected cost report"
+      - name: is_full_year_report
+        description: "True if the selected report covers >= 300 days. False values indicate short-period filings with potentially noisy margins."
+      - name: bed_count
+        description: "Number of beds from S-3 Part I, line 14, col 2"
+      - name: fte_employees
+        description: "Full-time-equivalent employees from S-3 Part I, line 14, col 10"
+      - name: net_patient_revenue
+        description: "Net patient revenues from G-3 line 3 col 1 (gross patient revenue minus contractual allowances)"
+      - name: total_operating_expenses
+        description: "Total operating expenses from G-3 line 4 col 1"
+      - name: operating_margin
+        description: "(net_patient_revenue - total_operating_expenses) / net_patient_revenue, rounded to 4 decimals. Negative values indicate operating losses."

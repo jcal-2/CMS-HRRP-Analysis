@@ -1,0 +1,176 @@
+==============================================================================
+  DATA SUMMARY
+==============================================================================
+
+Row count: 3,115
+Column count: 31
+Unique facility_ids: 3,115
+
+--- Penalty cohort distribution ---
+                    n   pct
+penalty_cohort             
+chronic          1382  44.4
+intermittent      929  29.8
+escaper           486  15.6
+never_penalized   165   5.3
+None              153   4.9
+
+--- Ownership category distribution ---
+ownership_category
+Non-Profit    1947
+For-Profit     648
+Government     447
+Other           73
+Name: count, dtype: int64
+
+--- Census region distribution ---
+census_region
+South        1303
+Midwest       701
+West          606
+Northeast     445
+Other          60
+Name: count, dtype: int64
+
+--- Star rating distribution ---
+star_rating
+1       176
+2       573
+3       848
+4       783
+5       290
+<NA>    445
+Name: count, dtype: Int64
+
+--- Missingness (top 15 columns by null count) ---
+                                   nulls   pct
+star_rating                          445  14.3
+avg_payment_amount                   302   9.7
+value_of_care_worse_than_national    302   9.7
+payment_measures_reported            302   9.7
+readmission_measures_reported        290   9.3
+measures_above_expected              290   9.3
+avg_current_err                      290   9.3
+mspb_ratio                           235   7.5
+penalty_pct_fy2025                   197   6.3
+penalized_fy2025                     197   6.3
+avg_err_fy2025                       197   6.3
+total_years_tracked                  153   4.9
+total_years_penalized                153   4.9
+penalty_cohort                       153   4.9
+hac_measures_reported                 68   2.2
+
+--- Continuous distributions (p10, p25, p50, p75, p90, mean, std, IQR-outliers) ---
+                               col    n       p10       p25       p50       p75       p90      mean      std  outliers_iqr
+                       star_rating 2670     2.000     2.000     3.000     4.000     5.000     3.164    1.086             0
+             total_years_penalized 2962     3.000     7.000     9.000    10.000    10.000     7.840    2.982           285
+                penalty_pct_fy2025 2918     0.000     0.000     0.002     0.005     0.008     0.003    0.004           150
+                    avg_err_fy2025 2918     0.955     0.980     1.000     1.024     1.053     1.000    0.052           167
+                        mspb_ratio 2880     0.890     0.940     0.990     1.040     1.090     0.991    0.088            88
+                   avg_current_err 2825     0.943     0.973     1.000     1.029     1.058     0.999    0.057           117
+           measures_above_expected 2825     0.000     1.000     2.000     3.000     4.000     1.994    1.443             0
+ complications_worse_than_national 3115     0.000     0.000     0.000     0.000     0.000     0.000    0.000             0
+complications_better_than_national 3115     0.000     0.000     0.000     0.000     0.000     0.000    0.000             0
+           hac_worse_than_national 3047     0.000     0.000     0.000     0.000     0.000     0.000    0.000             0
+                     avg_hac_score 3047   429.900   984.265  2221.744  4599.785  8050.207  3580.142 4141.723           207
+                avg_payment_amount 2813 19216.400 20737.750 22366.250 23537.750 24501.217 22137.546 2144.399            18
+ value_of_care_worse_than_national 2813     0.000     0.000     0.000     0.000     0.000     0.000    0.000             0
+
+--- Per-cohort means on key performance metrics ---
+                 star_rating  ...  value_of_care_worse_than_national
+penalty_cohort                ...                                   
+chronic                2.941  ...                                0.0
+escaper                3.522  ...                                0.0
+intermittent           3.338  ...                                0.0
+never_penalized        3.909  ...                                0.0
+
+[4 rows x 7 columns]
+
+--- Cohort size sanity ---
+penalty_cohort
+chronic            1382
+escaper             486
+intermittent        929
+never_penalized     165
+dtype: int64
+
+==============================================================================
+  STATISTICAL TESTS
+==============================================================================
+
+[Test 1] Welch's t-test: star_rating, chronic vs never_penalized
+  n_chronic=1363, mean=2.941; n_never=44, mean=3.909
+  t=-8.731, p=1.305e-11, Cohen's d=-0.898 (large)
+
+[Test 2] Welch's t-test: avg_current_err, chronic vs never_penalized
+  n_chronic=1381, mean=1.0180; n_never=54, mean=0.8949
+  t=6.716, p=1.244e-08, Cohen's d=2.426 (large)
+
+[Test 3] Welch's t-test: mspb_ratio (spending), chronic vs never_penalized
+  n_chronic=1373, mean=1.0069; n_never=110, mean=0.9334
+  t=6.171, p=1.044e-08, Cohen's d=0.959 (large)
+
+[Test 4] Chi-square: ownership_category vs penalty_cohort
+penalty_cohort      chronic  escaper  intermittent  never_penalized
+ownership_category                                                 
+For-Profit              323       87           136               55
+Government              162      102           144               22
+Non-Profit              892      270           629               69
+Other                     5       27            20               19
+  chi2=179.95, dof=9, p=5.186e-34, Cramer's V=0.142
+
+[Test 5] Chi-square: census_region vs penalty_cohort
+penalty_cohort  chronic  escaper  intermittent  never_penalized
+census_region                                                  
+Midwest             290      112           256               38
+Northeast           281       39           104               18
+South               615      201           347               65
+West                196      134           222               44
+  chi2=118.09, dof=9, p=3.292e-21, Cramer's V=0.115
+
+[Test 6] Mann-Whitney U: total_years_penalized, For-profit vs Non-profit
+  n_for_profit=601, median=10.0; n_non_profit=1860, median=9.0
+  U=558756, p=9.903e-01, rank-biserial r=0.000
+
+[Test 7] Spearman correlation: avg_current_err vs total_years_penalized
+  n=2781, rho=0.390, p=6.592e-102
+
+[Test 8] Spearman correlation: mspb_ratio vs total_years_penalized
+  n=2868, rho=0.232, p=1.954e-36
+
+[Test 9] Spearman correlation: star_rating vs total_years_penalized
+  n=2618, rho=-0.257, p=1.155e-40
+
+[Test 10] Kruskal-Wallis: avg_hac_score across the four penalty cohorts
+  group sizes: chronic=1376, intermittent=928, escaper=483, never=150
+  H=460.23, p=1.983e-99, eta-squared=0.1559
+
+==============================================================================
+  ADDITIONAL CUTS
+==============================================================================
+
+Cohort rates within each ownership category (row %):
+penalty_cohort      chronic  escaper  intermittent  never_penalized
+ownership_category                                                 
+For-Profit             53.7     14.5          22.6              9.2
+Government             37.7     23.7          33.5              5.1
+Non-Profit             48.0     14.5          33.8              3.7
+Other                   7.0     38.0          28.2             26.8
+
+Cohort rates within each census region (row %):
+penalty_cohort  chronic  escaper  intermittent  never_penalized
+census_region                                                  
+Midwest            41.7     16.1          36.8              5.5
+Northeast          63.6      8.8          23.5              4.1
+South              50.1     16.4          28.3              5.3
+West               32.9     22.5          37.2              7.4
+
+Avg star rating by cohort (with n):
+                 count  mean  median   std
+penalty_cohort                            
+chronic           1363  2.94     3.0  1.09
+escaper            358  3.52     4.0  1.04
+intermittent       853  3.34     3.0  1.02
+never_penalized     44  3.91     4.0  0.71
+
+Done.

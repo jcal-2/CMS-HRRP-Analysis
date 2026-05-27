@@ -1,0 +1,768 @@
+{
+  "trend": [
+    {
+      "fiscal_year": 2016,
+      "total_hospitals": 3464,
+      "penalized": 2665,
+      "pct_penalized": 76.9,
+      "avg_penalty_pct": 0.47,
+      "avg_err": 0.7935
+    },
+    {
+      "fiscal_year": 2017,
+      "total_hospitals": 3448,
+      "penalized": 2598,
+      "pct_penalized": 75.3,
+      "avg_penalty_pct": 0.55,
+      "avg_err": 0.6936
+    },
+    {
+      "fiscal_year": 2018,
+      "total_hospitals": 3414,
+      "penalized": 2634,
+      "pct_penalized": 77.2,
+      "avg_penalty_pct": 0.56,
+      "avg_err": 1.001
+    },
+    {
+      "fiscal_year": 2019,
+      "total_hospitals": 3173,
+      "penalized": 2599,
+      "pct_penalized": 81.9,
+      "avg_penalty_pct": 0.57,
+      "avg_err": 1.0013
+    },
+    {
+      "fiscal_year": 2020,
+      "total_hospitals": 3130,
+      "penalized": 2583,
+      "pct_penalized": 82.5,
+      "avg_penalty_pct": 0.58,
+      "avg_err": 1.0011
+    },
+    {
+      "fiscal_year": 2021,
+      "total_hospitals": 3080,
+      "penalized": 2545,
+      "pct_penalized": 82.6,
+      "avg_penalty_pct": 0.57,
+      "avg_err": 1.0004
+    },
+    {
+      "fiscal_year": 2022,
+      "total_hospitals": 3047,
+      "penalized": 2500,
+      "pct_penalized": 82.0,
+      "avg_penalty_pct": 0.53,
+      "avg_err": 1.0002
+    },
+    {
+      "fiscal_year": 2023,
+      "total_hospitals": 3044,
+      "penalized": 2273,
+      "pct_penalized": 74.7,
+      "avg_penalty_pct": 0.32,
+      "avg_err": 1.0004
+    },
+    {
+      "fiscal_year": 2024,
+      "total_hospitals": 3037,
+      "penalized": 2356,
+      "pct_penalized": 77.6,
+      "avg_penalty_pct": 0.33,
+      "avg_err": 1.0
+    },
+    {
+      "fiscal_year": 2025,
+      "total_hospitals": 2980,
+      "penalized": 2342,
+      "pct_penalized": 78.6,
+      "avg_penalty_pct": 0.32,
+      "avg_err": 0.9999
+    }
+  ],
+  "cohorts": [
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2018,
+      "hospitals": 704,
+      "avg_penalty": 0.5,
+      "avg_err": 0.9928
+    },
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2019,
+      "hospitals": 704,
+      "avg_penalty": 0.46,
+      "avg_err": 0.9932
+    },
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2020,
+      "hospitals": 704,
+      "avg_penalty": 0.47,
+      "avg_err": 0.9931
+    },
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2021,
+      "hospitals": 704,
+      "avg_penalty": 0.46,
+      "avg_err": 0.9921
+    },
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2022,
+      "hospitals": 704,
+      "avg_penalty": 0.41,
+      "avg_err": 0.9924
+    },
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2023,
+      "hospitals": 704,
+      "avg_penalty": 0.25,
+      "avg_err": 0.9927
+    },
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2024,
+      "hospitals": 704,
+      "avg_penalty": 0.24,
+      "avg_err": 0.9935
+    },
+    {
+      "cohort": "Almost Always",
+      "fiscal_year": 2025,
+      "hospitals": 686,
+      "avg_penalty": 0.24,
+      "avg_err": 0.9932
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2018,
+      "hospitals": 1528,
+      "avg_penalty": 0.86,
+      "avg_err": 1.027
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2019,
+      "hospitals": 1507,
+      "avg_penalty": 0.85,
+      "avg_err": 1.0267
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2020,
+      "hospitals": 1482,
+      "avg_penalty": 0.87,
+      "avg_err": 1.0271
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2021,
+      "hospitals": 1450,
+      "avg_penalty": 0.86,
+      "avg_err": 1.0274
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2022,
+      "hospitals": 1435,
+      "avg_penalty": 0.8,
+      "avg_err": 1.0249
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2023,
+      "hospitals": 1421,
+      "avg_penalty": 0.49,
+      "avg_err": 1.0237
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2024,
+      "hospitals": 1413,
+      "avg_penalty": 0.5,
+      "avg_err": 1.0202
+    },
+    {
+      "cohort": "Always Penalized",
+      "fiscal_year": 2025,
+      "hospitals": 1395,
+      "avg_penalty": 0.49,
+      "avg_err": 1.0201
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2018,
+      "hospitals": 256,
+      "avg_penalty": 0.0,
+      "avg_err": 0.9656
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2019,
+      "hospitals": 134,
+      "avg_penalty": 0.0,
+      "avg_err": 0.962
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2020,
+      "hospitals": 124,
+      "avg_penalty": 0.0,
+      "avg_err": 0.957
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2021,
+      "hospitals": 116,
+      "avg_penalty": 0.0,
+      "avg_err": 0.946
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2022,
+      "hospitals": 111,
+      "avg_penalty": 0.0,
+      "avg_err": 0.9442
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2023,
+      "hospitals": 119,
+      "avg_penalty": 0.0,
+      "avg_err": 0.945
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2024,
+      "hospitals": 125,
+      "avg_penalty": 0.0,
+      "avg_err": 0.9543
+    },
+    {
+      "cohort": "Never Penalized",
+      "fiscal_year": 2025,
+      "hospitals": 134,
+      "avg_penalty": 0.0,
+      "avg_err": 0.9563
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2018,
+      "hospitals": 926,
+      "avg_penalty": 0.27,
+      "avg_err": 0.971
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2019,
+      "hospitals": 828,
+      "avg_penalty": 0.25,
+      "avg_err": 0.9685
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2020,
+      "hospitals": 820,
+      "avg_penalty": 0.25,
+      "avg_err": 0.9676
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2021,
+      "hospitals": 810,
+      "avg_penalty": 0.23,
+      "avg_err": 0.967
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2022,
+      "hospitals": 797,
+      "avg_penalty": 0.22,
+      "avg_err": 0.9702
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2023,
+      "hospitals": 800,
+      "avg_penalty": 0.13,
+      "avg_err": 0.9739
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2024,
+      "hospitals": 795,
+      "avg_penalty": 0.15,
+      "avg_err": 0.977
+    },
+    {
+      "cohort": "Sometimes",
+      "fiscal_year": 2025,
+      "hospitals": 765,
+      "avg_penalty": 0.15,
+      "avg_err": 0.9769
+    }
+  ],
+  "ownership": [
+    {
+      "ownership_category": "For-Profit",
+      "cohort": "Always",
+      "hospitals": 322
+    },
+    {
+      "ownership_category": "For-Profit",
+      "cohort": "Never",
+      "hospitals": 40
+    },
+    {
+      "ownership_category": "For-Profit",
+      "cohort": "Sometimes",
+      "hospitals": 222
+    },
+    {
+      "ownership_category": "Government",
+      "cohort": "Always",
+      "hospitals": 162
+    },
+    {
+      "ownership_category": "Government",
+      "cohort": "Never",
+      "hospitals": 18
+    },
+    {
+      "ownership_category": "Government",
+      "cohort": "Sometimes",
+      "hospitals": 246
+    },
+    {
+      "ownership_category": "Non-Profit",
+      "cohort": "Always",
+      "hospitals": 892
+    },
+    {
+      "ownership_category": "Non-Profit",
+      "cohort": "Never",
+      "hospitals": 51
+    },
+    {
+      "ownership_category": "Non-Profit",
+      "cohort": "Sometimes",
+      "hospitals": 898
+    },
+    {
+      "ownership_category": "Other",
+      "cohort": "Always",
+      "hospitals": 5
+    },
+    {
+      "ownership_category": "Other",
+      "cohort": "Never",
+      "hospitals": 15
+    },
+    {
+      "ownership_category": "Other",
+      "cohort": "Sometimes",
+      "hospitals": 47
+    }
+  ],
+  "regional": [
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2016,
+      "pct_penalized": 77.4,
+      "avg_penalty": 0.47
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2017,
+      "pct_penalized": 78.7,
+      "avg_penalty": 0.53
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2018,
+      "pct_penalized": 79.3,
+      "avg_penalty": 0.52
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2019,
+      "pct_penalized": 83.4,
+      "avg_penalty": 0.49
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2020,
+      "pct_penalized": 81.6,
+      "avg_penalty": 0.48
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2021,
+      "pct_penalized": 81.6,
+      "avg_penalty": 0.51
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2022,
+      "pct_penalized": 81.9,
+      "avg_penalty": 0.48
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2023,
+      "pct_penalized": 75.5,
+      "avg_penalty": 0.32
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2024,
+      "pct_penalized": 79.8,
+      "avg_penalty": 0.31
+    },
+    {
+      "census_region": "Midwest",
+      "fiscal_year": 2025,
+      "pct_penalized": 79.6,
+      "avg_penalty": 0.3
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2016,
+      "pct_penalized": 88.7,
+      "avg_penalty": 0.6
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2017,
+      "pct_penalized": 88.9,
+      "avg_penalty": 0.78
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2018,
+      "pct_penalized": 90.5,
+      "avg_penalty": 0.77
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2019,
+      "pct_penalized": 91.5,
+      "avg_penalty": 0.78
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2020,
+      "pct_penalized": 92.0,
+      "avg_penalty": 0.78
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2021,
+      "pct_penalized": 93.4,
+      "avg_penalty": 0.76
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2022,
+      "pct_penalized": 92.0,
+      "avg_penalty": 0.68
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2023,
+      "pct_penalized": 87.1,
+      "avg_penalty": 0.4
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2024,
+      "pct_penalized": 86.3,
+      "avg_penalty": 0.45
+    },
+    {
+      "census_region": "Northeast",
+      "fiscal_year": 2025,
+      "pct_penalized": 88.7,
+      "avg_penalty": 0.44
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2016,
+      "pct_penalized": 82.5,
+      "avg_penalty": 0.55
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2017,
+      "pct_penalized": 83.6,
+      "avg_penalty": 0.66
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2018,
+      "pct_penalized": 83.3,
+      "avg_penalty": 0.68
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2019,
+      "pct_penalized": 85.0,
+      "avg_penalty": 0.66
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2020,
+      "pct_penalized": 87.2,
+      "avg_penalty": 0.68
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2021,
+      "pct_penalized": 86.0,
+      "avg_penalty": 0.64
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2022,
+      "pct_penalized": 85.6,
+      "avg_penalty": 0.6
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2023,
+      "pct_penalized": 76.6,
+      "avg_penalty": 0.36
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2024,
+      "pct_penalized": 79.2,
+      "avg_penalty": 0.35
+    },
+    {
+      "census_region": "South",
+      "fiscal_year": 2025,
+      "pct_penalized": 79.4,
+      "avg_penalty": 0.34
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2016,
+      "pct_penalized": 71.1,
+      "avg_penalty": 0.29
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2017,
+      "pct_penalized": 73.8,
+      "avg_penalty": 0.38
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2018,
+      "pct_penalized": 70.8,
+      "avg_penalty": 0.39
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2019,
+      "pct_penalized": 74.4,
+      "avg_penalty": 0.39
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2020,
+      "pct_penalized": 74.0,
+      "avg_penalty": 0.42
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2021,
+      "pct_penalized": 75.3,
+      "avg_penalty": 0.41
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2022,
+      "pct_penalized": 71.1,
+      "avg_penalty": 0.38
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2023,
+      "pct_penalized": 65.5,
+      "avg_penalty": 0.22
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2024,
+      "pct_penalized": 70.9,
+      "avg_penalty": 0.24
+    },
+    {
+      "census_region": "West",
+      "fiscal_year": 2025,
+      "pct_penalized": 70.8,
+      "avg_penalty": 0.24
+    }
+  ],
+  "persistence": [
+    {
+      "from_year": 2016,
+      "to_year": 2017,
+      "stayed_penalized": 2364,
+      "escaped": 293,
+      "entered": 232,
+      "stayed_free": 531
+    },
+    {
+      "from_year": 2017,
+      "to_year": 2018,
+      "stayed_penalized": 2406,
+      "escaped": 192,
+      "entered": 225,
+      "stayed_free": 568
+    },
+    {
+      "from_year": 2018,
+      "to_year": 2019,
+      "stayed_penalized": 2389,
+      "escaped": 164,
+      "entered": 206,
+      "stayed_free": 394
+    },
+    {
+      "from_year": 2018,
+      "to_year": 2023,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 1
+    },
+    {
+      "from_year": 2018,
+      "to_year": 2021,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 3
+    },
+    {
+      "from_year": 2018,
+      "to_year": 2022,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 1
+    },
+    {
+      "from_year": 2018,
+      "to_year": 2025,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 2
+    },
+    {
+      "from_year": 2018,
+      "to_year": 2020,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 1
+    },
+    {
+      "from_year": 2019,
+      "to_year": 2020,
+      "stayed_penalized": 2389,
+      "escaped": 174,
+      "entered": 192,
+      "stayed_free": 364
+    },
+    {
+      "from_year": 2019,
+      "to_year": 2022,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 1
+    },
+    {
+      "from_year": 2020,
+      "to_year": 2021,
+      "stayed_penalized": 2381,
+      "escaped": 161,
+      "entered": 162,
+      "stayed_free": 360
+    },
+    {
+      "from_year": 2020,
+      "to_year": 2022,
+      "stayed_penalized": 1,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 0
+    },
+    {
+      "from_year": 2021,
+      "to_year": 2022,
+      "stayed_penalized": 2348,
+      "escaped": 173,
+      "entered": 151,
+      "stayed_free": 363
+    },
+    {
+      "from_year": 2021,
+      "to_year": 2023,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 1
+    },
+    {
+      "from_year": 2022,
+      "to_year": 2023,
+      "stayed_penalized": 2137,
+      "escaped": 341,
+      "entered": 134,
+      "stayed_free": 397
+    },
+    {
+      "from_year": 2022,
+      "to_year": 2025,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 1
+    },
+    {
+      "from_year": 2022,
+      "to_year": 2024,
+      "stayed_penalized": 0,
+      "escaped": 0,
+      "entered": 0,
+      "stayed_free": 1
+    },
+    {
+      "from_year": 2023,
+      "to_year": 2024,
+      "stayed_penalized": 2041,
+      "escaped": 217,
+      "entered": 313,
+      "stayed_free": 446
+    },
+    {
+      "from_year": 2024,
+      "to_year": 2025,
+      "stayed_penalized": 2140,
+      "escaped": 172,
+      "entered": 201,
+      "stayed_free": 450
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Runtime dependencies for the CMS HRRP / VBP penalty analysis pipeline.
+# Versions pinned to the local development environment.
+
+# Ingestion / warehouse
+google-cloud-bigquery==3.41.0
+requests==2.34.0
+openpyxl==3.1.5
+
+# Transform (dbt)
+dbt-core==1.11.9
+dbt-bigquery==1.11.1
+
+# Analysis
+pandas==2.3.3
+numpy==2.4.4
+scipy==1.17.1
+scikit-learn==1.8.0
+matplotlib==3.10.9
+seaborn==0.13.2
+
+# Orchestration
+dagster==1.13.4

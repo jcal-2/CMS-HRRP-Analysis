@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "bigquery": {
+      "command": "npx",
+      "args": ["@anthropic-ai/mcp-bigquery", "--project", "data-viz-sandbox-495114"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["@anthropic-ai/mcp-github"]
+    }
+  }
+}

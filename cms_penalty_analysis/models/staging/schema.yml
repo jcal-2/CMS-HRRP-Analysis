@@ -1,0 +1,124 @@
+version: 2
+
+models:
+  - name: stg_hrrp_penalties
+    description: "Unified HRRP penalty data FY2016-FY2025. One row per hospital per fiscal year with payment adjustment factors, excess readmission ratios by condition, and peer group assignments."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN), unique hospital identifier"
+        tests:
+          - not_null
+      - name: fiscal_year
+        description: "Federal fiscal year (2016-2025)"
+        tests:
+          - not_null
+      - name: payment_adjustment_factor
+        description: "Medicare payment multiplier (1.0 = no penalty, 0.97 = 3% max penalty)"
+        tests:
+          - not_null
+      - name: is_penalized
+        description: "True if payment_adjustment_factor < 1.0"
+        tests:
+          - not_null
+      - name: peer_grouping_era
+        description: "Policy era: pre_peer_grouping (FY2016-2018) or post_peer_grouping (FY2019+)"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['pre_peer_grouping', 'post_peer_grouping']
+
+  - name: stg_hospital_info
+    description: "Hospital metadata filtered to Acute Care Hospitals. One row per hospital with location, ownership, star rating, and census region."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+        tests:
+          - not_null
+          - unique
+      - name: ownership_category
+        description: "Simplified ownership: Non-Profit, For-Profit, Government, or Other"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Non-Profit', 'For-Profit', 'Government', 'Other']
+      - name: census_region
+        description: "US Census region: Northeast, Midwest, South, West, or Other"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Northeast', 'Midwest', 'South', 'West', 'Other']
+
+  - name: stg_complications
+    description: "Hospital complication and death measures from CMS current snapshot. One row per hospital per measure."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+      - name: measure_id
+        description: "CMS measure identifier"
+      - name: compared_to_national
+        description: "Performance vs national rate: Better, No Different, or Worse"
+
+  - name: stg_hac
+    description: "Hospital-Acquired Condition scores from CMS current snapshot. One row per hospital per HAC measure."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+      - name: measure_id
+        description: "HAC measure identifier"
+      - name: score
+        description: "HAC measure score (higher = worse)"
+
+  - name: stg_readmissions_current
+    description: "Current excess readmission ratios from CMS snapshot. One row per hospital per condition."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+      - name: excess_readmission_ratio
+        description: "Ratio of predicted to expected readmissions (>1.0 = worse than expected)"
+
+  - name: stg_spending
+    description: "Medicare Spending Per Beneficiary ratios. One row per hospital."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+      - name: mspb_ratio
+        description: "Spending ratio vs national median (1.0 = average, >1.0 = higher spending)"
+
+  - name: stg_payment_value
+    description: "Payment and value of care measures from CMS current snapshot. One row per hospital per measure."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN)"
+      - name: payment_measure_id
+        description: "Payment measure identifier"
+      - name: value_of_care_category
+        description: "Value assessment vs national rate"
+
+  - name: stg_hcris_financials
+    description: "Hospital financials extracted from CMS HCRIS Form 2552-10 cost reports. One row per cost report (rpt_rec_num) across FY2024 and FY2025 receipt windows. A hospital may have multiple reports."
+    columns:
+      - name: facility_id
+        description: "CMS Certification Number (CCN), from rpt.prvdr_num"
+        tests:
+          - not_null
+      - name: rpt_rec_num
+        description: "HCRIS internal report record number (grain of this table)"
+        tests:
+          - not_null
+          - unique
+      - name: hcris_receipt_fy
+        description: "Fiscal year window in which CMS received the report ('2022' through '2025')"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['2022', '2023', '2024', '2025']
+      - name: bed_count
+        description: "Number of beds, S-3 Part I, line 14, col 2"
+      - name: fte_employees
+        description: "Full-time-equivalent employees, S-3 Part I, line 14, col 10"
+      - name: net_patient_revenue
+        description: "Net patient revenues from G-3, line 3, col 1 (= gross patient revenue minus contractual allowances and discounts)"
+      - name: total_operating_expenses
+        description: "Total operating expenses from G-3, line 4, col 1 (rolls up from Worksheet G-2 Part II line 43)"
+      - name: operating_margin
+        description: "(net_patient_revenue - total_operating_expenses) / net_patient_revenue, rounded to 4 decimals. NULL when net_patient_revenue is missing or zero. Negative values mean expenses exceed patient revenue."

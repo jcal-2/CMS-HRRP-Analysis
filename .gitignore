@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+.env
+target/
+dbt_packages/
+logs/
+
+# Raw data (large, not for git)
+HOSP10FY*/
+HOSP10FY*.ZIP
+*.ZIP
+data/raw/
+
+# Derived artifacts regenerable from markdown source
+*.docx
+~$*
